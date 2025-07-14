@@ -1,0 +1,57 @@
+﻿@model List<Product>
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<!-- section title -->
+			<div class="col-md-12">
+				<div class="section-title">
+					<h3 class="title">New Products</h3>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="products-tabs">
+							<div id="tab1" class="tab-pane active">
+								<div class="products-slick" data-nav="#slick-nav-1">
+									@foreach (var prod in Model){
+										<!-- product -->
+										<div class="product">
+											<div class="product-img">
+												@foreach (var img in prod.Images)
+												{
+													@if (img.IsPrimary == 1)
+													{
+														<img src="@img.ImgPath" alt="">
+													}
+
+												}
+												<div class="product-label">
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<h3 class="product-name"><a asp-controller="Product" asp-action="Details" asp-route-id="@prod.ProductId">@prod.ProductName</a></h3>
+												<h4 class="product-price">$@prod.Price</h4>
+											</div>
+											@if (User.IsInRole("Customer")){
+												<div class="add-to-cart">
+													<a class="add-to-cart-btn" href="@Url.Action("AddToCart", "Cart", new { id = prod.ProductId })"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+													<!--<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+												</div>
+											}
+
+										</div>
+										<!-- /product -->
+									}
+
+								</div>
+								<div id="slick-nav-1" class="products-slick-nav"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /section title -->
+		</div>
+	</div>
+</div>

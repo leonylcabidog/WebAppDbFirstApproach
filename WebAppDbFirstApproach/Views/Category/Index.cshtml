@@ -1,0 +1,42 @@
+﻿@model List<Category>
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="breadcrumb-header">Categories</h3>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="text-align: right">
+                    <a class="btn btn-primary" asp-area="" asp-controller="Category" asp-action="Create">Create</a>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var cat in Model){
+                            <tr>
+                                <td>@cat.CategoryName</td>
+                                <td>@cat.CategoryDescription</td>
+                                <td>
+                                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@cat.CategoryId" class="btn btn-primary btn-sm">Edit</a>
+                                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@cat.CategoryId" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /BREADCRUMB -->

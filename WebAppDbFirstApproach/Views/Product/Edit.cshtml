@@ -1,0 +1,107 @@
+﻿@model Product
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<div class="billing-details">
+					<form asp-action="Edit" asp-controller="Product" method="post">
+						<div class="section-title">
+							<h3 class="title">Edit Product</h3>
+							<input asp-for="ProductId" class="input" hidden />
+							<table class="table">
+								<tr>
+									<td>Name</td>
+									<td>
+										<div class="form-group">
+											<input class="input" asp-for="ProductName" placeholder="Name" />
+											<span asp-validation-for="ProductName" class="text-danger"></span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Price</td>
+									<td>
+										<div class="form-group">
+											<input class="input" asp-for="Price" placeholder="Price" />
+											<span asp-validation-for="Price" class="text-danger"></span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Size</td>
+									<td>
+										<div class="form-group">
+											<input class="input" asp-for="size" placeholder="size" />
+											<span asp-validation-for="size" class="text-danger"></span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Color</td>
+									<td>
+										<div class="form-group">
+											<input class="input" asp-for="color" placeholder="Color" />
+											<span asp-validation-for="color" class="text-danger"></span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Quantity</td>
+									<td>
+										<div class="form-group">
+											<input class="input" asp-for="StockCount" placeholder="Quatity" />
+											<span asp-validation-for="StockCount" class="text-danger"></span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Description</td>
+									<td>
+										<div class="form-group">
+											<input class="input" asp-for="Description" placeholder="Description" />
+											<span asp-validation-for="Description" class="text-danger"></span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Status</td>
+									<td>
+										<div class="form-group">
+											<select class="input-select" asp-for="Status">
+												<option value="Active">Active</option>
+												<option value="Deactive">Deactive</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Category</td>
+									<td>
+										<div class="form-group">
+											<select class="input-select" asp-for="CategoryId">
+												<option value="5">Laptops</option>
+												<option value="6">Smartphones</option>
+												<option value="7">Cameras</option>
+												<option value="8">Accessories</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+										<button type="submit" class="primary-btn order-submit">Edit</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

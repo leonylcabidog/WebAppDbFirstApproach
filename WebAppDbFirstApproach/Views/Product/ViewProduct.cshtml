@@ -1,0 +1,73 @@
+﻿@model Product
+<div id="breadcrumb" class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tbody>
+						<tr>
+							<td>Product ID</td>
+							<td>@Model.ProductId</td>
+						</tr>
+						<tr>
+							<td>Product Name</td>
+							<td>@Model.ProductName
+						</tr>
+						<tr>
+							<td>Price</td>
+							<td>@Model.Price</td>
+						</tr>
+						<tr>
+							<td>Size</td>
+							<td>@Model.size</td>
+						</tr>
+						<tr>
+							<td>Color</td>
+							<td>@Model.color</td>
+						</tr>
+						<tr>
+							<td>Quatity</td>
+							<td>@Model.StockCount</td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td>@Model.Description</td>
+						</tr>
+						<tr>
+							<td>Status</td>
+							<td>@Model.Status</td>
+						</tr>
+						<tr>
+							<td>Date Created</td>
+							<td>@Model.CreatedDate</td>
+						</tr>
+                    </tbody>
+                </table>
+				<h3 class="breadcrumb-header">Image List</h3>
+				<div class="d-grid gap-2 d-md-flex justify-content-md-end" style="text-align: right">
+					<a class="btn btn-primary" asp-area="" asp-controller="Product" asp-route-id="@Model.ProductId" asp-action="AddImage">Add Image</a>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Image</th>
+							<th scope="col">Image Description</th>
+							<th scope="col">Is Primary</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var img in Model.Images)
+						{
+							<tr>
+								<td><img width="100" src="@img.ImgPath" /></td>
+								<td>@img.ImgDescription</td>
+								<td>@img.IsPrimary</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

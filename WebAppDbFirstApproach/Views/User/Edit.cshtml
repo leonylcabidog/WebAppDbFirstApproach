@@ -1,0 +1,43 @@
+﻿@using WebAppDbFirstApproach.ViewModel;
+
+@model EditUserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="billing-details">
+                    <h3 class="title">Edit User</h3>
+
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="UserName"></label>
+                            <input asp-for="UserName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

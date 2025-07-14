@@ -1,0 +1,71 @@
+﻿@model CategoryProduct
+
+
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-md-push-2">
+				<div id="product-main-img">
+					@foreach(var img in Model.Products.Images){
+						<div class="product-preview">
+							<img src="@img.ImgPath" alt="">
+						</div>
+					}
+				</div>
+			</div>
+			<div class="col-md-2  col-md-pull-5">
+				<div id="product-imgs">
+					@foreach (var img in Model.Products.Images)
+					{
+						<div class="product-preview">
+							<img src="@img.ImgPath" alt="">
+						</div>
+					}
+				</div>
+			</div>
+
+			<!-- Product details -->
+			<div class="col-md-5">
+				<div class="product-details">
+					<h2 class="product-name">@Model.Products.ProductName</h2>
+
+					<div>
+						<h3 class="product-price">$@Model.Products.Price</h3>
+						<span class="product-available">In Stock</span>
+					</div>
+					<p>@Model.Products.Description</p>
+
+					<div class="product-options">
+						<label>
+							Size: <b>@Model.Products.size</b>
+						</label>
+						<label>
+							Color: <b>@Model.Products.color</b>
+						</label>
+						<label>
+							Stock Left: <b>@Model.Products.StockCount</b>
+						</label>
+					</div>
+					@if (User.IsInRole("Customer")){
+						<div class="add-to-cart">
+							<a class="add-to-cart-btn" href="@Url.Action("AddToCart", "Cart", new { id = Model.Products.ProductId })"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+						</div>
+					}
+
+
+					<ul class="product-links">
+						<li>Category:</li>
+						@foreach(var cat in @Model.Categories){
+							@if(cat.CategoryId == Model.Products.CategoryId){
+								<li><b>@cat.CategoryName</b></li>
+							}
+						}
+					</ul>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

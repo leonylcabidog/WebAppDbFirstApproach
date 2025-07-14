@@ -1,0 +1,62 @@
+﻿@model List<Product>
+
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">List of Products</h3>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="text-align: right">
+                    <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="Create">Create</a>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">color</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Date Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         @foreach (var prod in Model)
+                        {
+                            <tr>
+                                <td>@prod.ProductId</td>
+                                <td>@prod.ProductName</td>
+                                <td>@prod.Price</td>
+                                <td>@prod.color</td>
+                                <td>
+                                    @if (@prod.Description.Length > 30)
+                                    {
+                                        @(prod.Description.Substring(0, 25) + "...")
+                                    }
+                                    else
+                                    {
+                                        @prod.Description
+                                    }
+                                </td>
+                                <td>@prod.Status</td>
+                                <td>@prod.CreatedDate</td>
+                                <td>
+                                    <a asp-controller="Product" asp-action="ViewProduct" asp-route-id="@prod.ProductId" class="btn btn-primary btn-sm">View</a>
+                                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@prod.ProductId" class="btn btn-warning btn-sm">Edit</a>
+                                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@prod.ProductId" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /BREADCRUMB -->

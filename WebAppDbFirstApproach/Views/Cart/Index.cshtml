@@ -1,0 +1,29 @@
+﻿@model ShoppingCart
+<h3 class="breadcrumb-header">Shopping Cart</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Product.Price * item.Quantity)</td>
+                <td>
+                    @* <a class="add-to-cart-btn" href="@Url.Action("AddToCart", "Cart", new { id = prod.ProductId })"><i class="fa fa-shopping-cart"></i> Add to Cart</a> *@
+                    <a href="@Url.Action("RemoveFromCart", "Cart", new { id = item.Product.ProductId }, null)" class="btn btn-danger btn-sm">Remove</a>
+                    @* @Html.ActionLink("Remove", "RemoveFromCart", "Cart", new { id = item.Product.ProductId }, null) *@
+                </td>
+            </tr>
+        }
+    </tbody>
+    
+</table>
+<p>Total: @Model.GetTotal()</p>

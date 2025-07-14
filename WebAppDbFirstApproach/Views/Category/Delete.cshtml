@@ -1,0 +1,27 @@
+﻿@model Category
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<div class="billing-details">
+					<form asp-action="Delete" method="post">
+						<div class="section-title">
+							<h3 class="title">Delete Category</h3>
+							<input asp-for="CategoryId" class="input" hidden />
+							<div class="form-group">
+								<input class="input" asp-for="CategoryName" placeholder="Name" readonly />
+								<span asp-validation-for="CategoryName" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="CategoryDescription" placeholder="Description" readonly />
+								<span asp-validation-for="CategoryDescription" class="text-danger"></span>
+							</div>
+							<button type="submit" class="primary-btn order-submit">Delete</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

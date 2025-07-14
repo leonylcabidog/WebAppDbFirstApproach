@@ -1,0 +1,71 @@
+﻿@model Product
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<div class="billing-details">
+					<form asp-action="Create" asp-controller="Product" method="post">
+						<div class="section-title">
+							<h3 class="title">Create Product</h3>
+							<div class="form-group">
+								<input class="input" asp-for="ProductName" placeholder="Name" />
+								<span asp-validation-for="ProductName" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="Price" placeholder="Price" />
+								<span asp-validation-for="Price" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="size" placeholder="Product Size" />
+								<span asp-validation-for="size" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="color" placeholder="Product Color" />
+								<span asp-validation-for="color" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="StockCount" placeholder="Quantity of Stock" />
+								<span asp-validation-for="StockCount" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="Description" placeholder="Description" />
+								<span asp-validation-for="Description" class="text-danger"></span>
+							</div>
+							<div class="form-group">
+								<label>Status
+								<select class="input-select" asp-for="Status">
+									<option value="Active" selected>Active</option>
+									<option value="Deactive">Deactive</option>
+								</select>
+								</label>
+							</div>
+
+							<div class="form-group">
+								<label>
+									Category
+								<select class="input-select" asp-for="CategoryId">
+									<option selected>Select Category</option>
+									<option value="5">Laptops</option>
+									<option value="6">Smartphones</option>
+									<option value="7">Cameras</option>
+									<option value="8">Accessories</option>
+									<option value="9">CloudCat</option>
+								</select>
+								</label>
+							</div>
+							<div class="input-checkbox">
+								<input type="checkbox" id="IsNew" asp-for="IsNew">
+								<label for="IsNew">
+									<span></span>
+									Is New?</a>
+								</label>
+							</div>
+							<button type="submit" class="primary-btn order-submit">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
